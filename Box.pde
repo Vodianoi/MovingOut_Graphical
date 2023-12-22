@@ -1,10 +1,14 @@
 public class Box {
 
   public Location actualLocation;
+  public Storage storage;
+  float weight;
 
 
-  public Box(Location location) {
+  public Box(Location location, float weight) {
     this.actualLocation = location;
+    this.weight = weight;
+    this.storage = null;
   }
 
 

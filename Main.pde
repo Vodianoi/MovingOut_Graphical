@@ -1,4 +1,4 @@
-final int totalCartons = 200;
+final int totalCartons = 34;
 final int capacity = 9;
 final int truckBaseSpeed = 2;
 
@@ -6,6 +6,7 @@ public class Main {
   Truck truck;
   Location oldLocation;
   Location newLocation;
+  boolean inverted = false;
 
   // Init des différentes données membre
   public Main() {
@@ -24,5 +25,13 @@ public class Main {
     oldLocation.display();
     newLocation.display();
     truck.display();
+  }
+  
+  
+  public void switchLocation(){
+    Location temp = oldLocation;
+    oldLocation = newLocation;
+    newLocation = temp;
+    inverted = !inverted;
   }
 }

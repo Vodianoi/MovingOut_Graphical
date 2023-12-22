@@ -6,6 +6,7 @@ public class Truck extends Location
   private boolean goToNewLocation;
   
   private PImage image;
+  
 
 
   public Truck(float x, float y, float w, float h, color col, PVector velocity, int capacity) {
@@ -31,20 +32,23 @@ public class Truck extends Location
 
   public void move() {
     if (main.oldLocation.Boxes.size() == 0 && this.Boxes.size() == 0)
+    {
       gameState = State.Ended;
+      //main.switchLocation();
+    }
     if (goToNewLocation) {
       if (Position.x < main.newLocation.Position.x + main.newLocation.Size.x/2) {
         Position.x += Velocity.x;
       } else {
         // Vide le camion dans newLocation
         emptyTruckTo(main.newLocation);
+        main.newLocation.sortInStorages();
         goToNewLocation = false;
       }
     } else {
       if (Position.x > main.oldLocation.Position.x + main.oldLocation.Size.x/2) {
         Position.x -= Velocity.x;
       } else {
-
         // Rempli le camion
         fillTruck();
 

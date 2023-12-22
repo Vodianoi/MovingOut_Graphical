@@ -41,7 +41,7 @@ void keyPressed() {
       println(gameState);
       break;
     case Ended:
-      main = new Main();
+      //main = new Main();
       gameState = State.Started;
       println(gameState);
       break;
