@@ -8,7 +8,6 @@ public class Location
   public LinkedList<Box> Boxes;
   
   
-  private ArrayList<Storage> storages;
 
   public Location(String name, float x, float y, float w, float h, color col) {
     Name = name;
@@ -16,15 +15,7 @@ public class Location
     Size = new PVector(w, h);
     Color = col;
     Boxes = new LinkedList();
-    Storage storage1 = new Storage("<= 1", x, y, w, h, col, 0);
-    Storage storage2 = new Storage("<= 3", x, y, w, h, col, 3);
-    Storage storage3 = new Storage("<= 5", x, y, w, h, col, 5);
-    Storage storage4 = new Storage("else", x, y, w, h, col, Float.MAX_VALUE);
-    storages = new ArrayList(4);
-    storages.add(storage1);
-    storages.add(storage2);
-    storages.add(storage3);
-    storages.add(storage4);
+
   }
 
   public void display() {
@@ -56,10 +47,7 @@ public class Location
     for (int i = 0; i < Boxes.size(); i++) {
       Boxes.get(i).display(i, Position.x, Position.y + roofHeight);
     }
-    
-    for(Storage storage : storages){
-      storage.display();
-    }
+
   }
 
 
@@ -78,31 +66,13 @@ public class Location
     newLocation.Boxes.push(carton);
   }
   
-  // Enlève un carton de this et le place dans newLocation
-  public void popCartonTo(Storage storage)
-  {
-    Box carton = Boxes.pop();
-    carton.storage = storage;
-    storage.Boxes.push(carton);
-  }
+
 
   // Calcul du nombre de carton max par ligne
   public int getMaxCartonsPerRow() {
     return int(Size.x / 15); 
   }
   
-  public void sortInStorages(){
-    for(int i = 0; i < Boxes.size(); i++){
-      for(Storage storage : storages) {
-        if(Boxes.get(i).weight <= storage.weightCeil){
-          popCartonTo(storage);
-        }
-      }
-    }
-    for(Storage storage : storages){
-      println(storage.Boxes.size() + " cartons dans le stockage de seuil : " + storage.weightCeil);
-    }
-  }
 
 
   // Code récupéré pour calculer la bonne couleur en fonction du fond (ça marche pas lol)

@@ -42,7 +42,6 @@ public class Truck extends Location
       } else {
         // Vide le camion dans newLocation
         emptyTruckTo(main.newLocation);
-        main.newLocation.sortInStorages();
         goToNewLocation = false;
       }
     } else {
