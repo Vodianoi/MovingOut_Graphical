@@ -23,9 +23,11 @@ public class Box {
     fill(139, 69, 19);
 
     if (actualLocation instanceof Truck) {
-      rect(locationX + 5 + i * 3, locationY - 25, 20, 20);
+      rect(locationX + 5 + i * 3, locationY - 25, actualLocation.Size.x /10, actualLocation.Size.y /10);
+    } else  if (storage != null) {
+      rect(x, y, storage.Size.x / 20, storage.Size.y / 20);
     } else {
-      rect(x, y, 10, 10);
+      rect(x, y, actualLocation.Size.x /20, actualLocation.Size.y /20);
     }
   }
 }

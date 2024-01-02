@@ -35,8 +35,14 @@ public class Storage {
 
     // affichage des cartons
     //for (int j = 0; j < Boxes.size(); j++) {
-    //  Boxes.get(j).display(j, x, y + 50);
+    //  Boxes.get(j).display(j, x, y);
     //}
+    fill(0);
+    if (weightCeil == Float.MAX_VALUE) {
+      text("> 5", x+ w/2 - 5, y + h/2);
+    } else {
+      text("<=" + (int)weightCeil, x+ w/2 - 10, y + h/2);
+    }
     text(Boxes.size(), x, y);
   }
 }

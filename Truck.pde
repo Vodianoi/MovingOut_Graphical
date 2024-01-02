@@ -2,6 +2,7 @@ public class Truck extends Location
 {
   public PVector Velocity;
   public int Capacity;
+  public float MaxWeight;
 
   private boolean goToNewLocation;
   
@@ -9,11 +10,12 @@ public class Truck extends Location
   
 
 
-  public Truck(float x, float y, float w, float h, color col, PVector velocity, int capacity) {
+  public Truck(float x, float y, float w, float h, color col, PVector velocity, int capacity, float maxWeight) {
     super("Camion", x, y, w, h, col);
     goToNewLocation = false;
     Velocity = velocity;
     Capacity = capacity;
+    MaxWeight = maxWeight;
   }
 
   public void display() {
@@ -67,9 +69,15 @@ public class Truck extends Location
 
   private void fillTruck() {
     // Vérifie qu'il y a assez de cartons pour remplir le camion
+    float weight = 0;
     int min = min(Capacity, main.oldLocation.Boxes.size());
     for (int i = 0; i < min; i++)
     {
+      if(weight + main.oldLocation.Boxes.get(main.oldLocation.Boxes.size() - 1).weight > MaxWeight)
+      {
+        break;
+      }
+      weight += main.oldLocation.Boxes.get(main.oldLocation.Boxes.size() - 1).weight;
       main.oldLocation.popCartonTo(this);
     }
   }

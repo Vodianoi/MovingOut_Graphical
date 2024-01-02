@@ -98,9 +98,8 @@ public class Location
   public void sortInStorages() {
     for (int i = Boxes.size() - 1; i >= 0; i--) {
       for (int j = 0; j < storages.size(); j++) {
-        println(Boxes.get(i).weight + " <= " + storages.get(j).weightCeil);
+        //println(Boxes.get(i).weight + " <= " + storages.get(j).weightCeil);
         if (Boxes.get(i).weight <= storages.get(j).weightCeil) {
-          println("Pop");
           //popCartonTo(storages.get(j));
           Box box = Boxes.remove(i);
           storages.get(j).Boxes.add(box);
@@ -110,14 +109,14 @@ public class Location
     }
     for (Storage storage : storages) {
       println(storage.Boxes.size() + " cartons dans le stockage de seuil : " + storage.weightCeil);
-      for (int i = 0; i < storage.Boxes.size(); i++) {
-        //println(storage.Boxes.get(i).weight);
-      }
+      //for (int i = 0; i < storage.Boxes.size(); i++) {
+      //  //println(storage.Boxes.get(i).weight);
+      //}
     }
-    println(Boxes.size());
-    for (Box box : Boxes) {
-      println(box.weight);
-    }
+    //println(Boxes.size());
+    //for (Box box : Boxes) {
+    //  println(box.weight);
+    //}
   }
 
 
