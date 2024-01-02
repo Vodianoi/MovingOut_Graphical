@@ -24,13 +24,19 @@ public class Storage {
   }
 
 
-  void display() {
-    float x = Position.x;
-    float y = Position.y;
+  void display(int i) {
     float w = Size.x;
     float h = Size.y;
+    float x = Position.x + i * (w+10);
+    float y = Position.y - 50;
 
     fill(Color);
     rect(x, y, w, h);
+
+    // affichage des cartons
+    //for (int j = 0; j < Boxes.size(); j++) {
+    //  Boxes.get(j).display(j, x, y + 50);
+    //}
+    text(Boxes.size(), x, y);
   }
 }
