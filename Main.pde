@@ -1,4 +1,4 @@
-final int totalCartons = 34;
+final int totalCartons = 39;
 final int capacity = 9;
 final int truckBaseSpeed = 2;
 
