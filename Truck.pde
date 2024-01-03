@@ -25,7 +25,7 @@ public class Truck extends Location
     
     image = goToNewLocation ? loadImage("truckFlipped.png") : loadImage("truck.png");
 
-    image(image, x, y, 50 * (goToNewLocation ? 1 : -1), 30);
+    image(image, x, y, 50, 30);
     for (int i = 0; i < Boxes.size(); i++) {
       Boxes.get(i).display(i, Position.x, Position.y);
     }
